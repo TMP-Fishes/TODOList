@@ -6,9 +6,6 @@
         <variable
             name="vm"
             type="com.example.fishtodo.viewmodel.HomeViewModel" />
-        <variable
-            name="clickHandler"
-            type="com.example.fishtodo.ScrollingActivity" />
     </data>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -65,7 +62,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
             android:contentDescription="@string/button_desc_sync"
-            android:onClick="@{() -> clickHandler.showSnack(fab)}"
             app:layout_anchor="@id/app_bar"
             app:layout_anchorGravity="bottom|end"
             app:srcCompat="@android:drawable/ic_popup_sync" />
