@@ -37,7 +37,7 @@ class DBManager(context: Context) {
                 .allowWritesOnUiThread(true)
                 .build()
             return  Realm.getInstance(config)
-                .where<FishCollection>()
+                .where<FishCollection>().sort("date")
                 .findFirst() // TODO: get today's latest;
         }
     }
