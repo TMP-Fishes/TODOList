@@ -23,13 +23,17 @@ class ScrollingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scrolling)
         setSupportActionBar(findViewById(R.id.toolbar))
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            TODO("Why not work??? QVQ So magic???")
-            Snackbar.make(view, "Updating...", Snackbar.LENGTH_SHORT).show() // TODO: uhh, what's the "action" here?
-        }
-        DataBindingUtil.setContentView<ActivityScrollingBinding> (
-            this, R.layout.activity_scrolling
-        ).vm = viewmodel
+        val currentActivityBinding: ActivityScrollingBinding = DataBindingUtil.setContentView (
+    this, R.layout.activity_scrolling
+        )
+        currentActivityBinding.vm = viewmodel
+        currentActivityBinding.clickHandler = this
+
+        viewmodel.bind(dbManager.readLatest())
+    }
+
+    fun showSnack(view: View) {
+        Snackbar.make(view, "Updating...", Snackbar.LENGTH_SHORT).show()
         viewmodel.bind(dbManager.readLatest())
     }
 
