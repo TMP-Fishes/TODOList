@@ -28,7 +28,6 @@ class ScrollingActivity : AppCompatActivity() {
         )
         currentActivityBinding.vm = viewmodel
         currentActivityBinding.clickHandler = this
-
         viewmodel.bind(dbManager.readLatest())
     }
 
@@ -53,10 +52,7 @@ class ScrollingActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-//    private fun onClickSync(view: View) {
-//        viewmodel.bind(dbManager.readLatest()) // TODO: observable? two-way bind?
-//        Snackbar.make(view, "Updating...", Snackbar.LENGTH_SHORT)
-//            .setAction("Action", null).show() // TODO: uhh, what's the "action" here?
-//    }
 }
+
+// Mongo  - online -> mongo atlas
+//        - local  -> mongo compass -> connect (aaa) -> DB management

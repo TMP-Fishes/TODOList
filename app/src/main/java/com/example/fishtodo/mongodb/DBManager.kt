@@ -30,14 +30,15 @@ class DBManager(context: Context) {
         }
     }
 
-    fun readLatest(): FishCollection? {
+    fun readLatest(): FishCollection? { // TODO: Why sync slow?
         return app.currentUser()?.let {
             val config = SyncConfiguration.Builder(app.currentUser(), PARTITION_KEY)
                 .allowQueriesOnUiThread(true)
                 .allowWritesOnUiThread(true)
                 .build()
             return  Realm.getInstance(config)
-                .where<FishCollection>().sort("date")
+                .where<FishCollection>()
+                .sort("date")
                 .findFirst() // TODO: get today's latest;
         }
     }

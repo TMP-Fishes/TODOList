@@ -7,7 +7,6 @@ import io.realm.annotations.RealmClass
 import org.bson.types.ObjectId
 import java.util.*
 
-
 open class FishCollection : RealmObject() {
     @PrimaryKey
     private var _id: ObjectId? = null
@@ -30,3 +29,6 @@ open class FishCollection_tasks : RealmObject() {
                 "Description: $description \n\n")
     }
 }
+
+//collection -> {"_id":"", "date": Date(), ..., "tasks": [<FishCollection_task>]}
+//task -> {"desc":"", "name":"", "rate": 0}
